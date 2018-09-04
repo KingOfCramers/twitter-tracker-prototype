@@ -1,9 +1,15 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { startAddStory } from "../actions/stories";
 
-const AddStoryIcon = () => (
+export const AddStoryIcon = (props) => (
   <div>
-    Add Story Icon
+    <button onClick={props.addStory}></button>
   </div>
 );
 
-export default AddStoryIcon;
+const mapDispatchToProps = (dispatch, props) => ({
+  addStory: () => dispatch(startAddStory({ story: "This is new", deadline: 19039 }))
+})
+
+export default connect(undefined, mapDispatchToProps)(AddStoryIcon);

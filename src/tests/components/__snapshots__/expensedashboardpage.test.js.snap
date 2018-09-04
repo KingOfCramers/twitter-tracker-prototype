@@ -3,6 +3,6 @@
 exports[`Should render ExpenseDashboard page correctly 1`] = `
 <div>
   <StoryIcon />
-  <AddStoryIcon />
+  <Connect(AddStoryIcon) />
 </div>
 `;

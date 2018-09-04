@@ -1,8 +1,8 @@
 import React from "react";
-import EditStoryPage from "../../components/EditStoryPage";
+import { AddStoryIcon } from "../../components/AddStoryIcon";
 import { shallow } from "enzyme";
 
 test("Should render story page correctly", () => {
-  const wrapper = shallow(<EditStoryPage />);
+  const wrapper = shallow(<AddStoryIcon />);
   expect(wrapper).toMatchSnapshot();
 });
