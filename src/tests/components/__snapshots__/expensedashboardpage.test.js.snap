@@ -2,11 +2,7 @@
 
 exports[`Should render ExpenseDashboard page correctly 1`] = `
 <div>
-  <Link
-    replace={false}
-    to="/story/create"
-  >
-    Stories
-  </Link>
+  <StoryIcon />
+  <AddStoryIcon />
 </div>
 `;

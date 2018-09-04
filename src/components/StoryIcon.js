@@ -1,9 +1,9 @@
 import React from 'react';
 
-const StoryPage = () => (
+const StoryIcon = () => (
   <div>
     Story Page
   </div>
 );
 
-export default StoryPage;
+export default StoryIcon;
