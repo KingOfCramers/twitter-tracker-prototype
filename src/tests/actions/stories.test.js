@@ -1,7 +1,7 @@
 import configureMockStore from "redux-mock-store"
 import thunk from "redux-thunk";
 import database from "../../firebase/firebase";
-import { addStory, startAddStory } from "../../actions/stories";
+import { addStory, startAddStory, setStories, startSetStories } from "../../actions/stories";
 import stories from "../fixtures/stories";
 
 const uid = "oisfdhw89enaosfa";
@@ -46,3 +46,25 @@ test("Should add story to firebase and store in Redux", (done) => {
     done();
   });
 });
+
+test("Should setup story action object generator", () => {
+  const action = setStories(stories);
+  expect(action).toEqual({
+    type: "SET_STORIES",
+    stories
+  });
+});
+
+
+test('Should fetch the stories from firebase', (done) => {
+  const store = createMockStore(defaultAuthState);
+  store.dispatch(startSetStories()).then(() => {
+    const actions = store.getActions();
+    expect(actions[0].type).toEqual("SET_STORIES")
+    expect(actions[0].stories).toContainEqual(stories[0], stories[1], stories[3]);
+    console.log(actions[0]);
+    done();
+  });
+});
+
+

@@ -18,20 +18,26 @@ export const startAddStory = ({ story = "", deadline = 0} = {}) => {
     });
   };
 };
-/*
+
+export const setStories = (stories) => ({
+  type: "SET_STORIES",
+  stories
+});
+
+
 export const startSetStories = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    return database.ref(`users/${uid}/stories`).once("value")
+    return database.ref(`users/${uid}/`).once("value")
       .then((snapshot) => {
         const stories = [];
-        snapshot.forEach((childsnapshot) => {
+        snapshot.forEach((childSnapshot) => {
           stories.push({
             id: childSnapshot.key,
             ...childSnapshot.val()
-          });
+          })
         });
         dispatch(setStories(stories));
       });
   };
-};*/
+};
