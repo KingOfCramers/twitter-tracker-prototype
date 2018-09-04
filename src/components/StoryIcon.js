@@ -1,9 +1,16 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { startRemoveStory } from "../actions/stories";
 
-const StoryIcon = () => (
+export const StoryIcon = (props) => (
   <div>
-    Story Page
+    <h2>{props.story}</h2>
+    <button className="button" onClick={props.startRemoveStory}>Remove Story</button>
   </div>
 );
 
-export default StoryIcon;
+const mapDispatchToProps = (dispatch, props) => ({
+  startRemoveStory: () => dispatch(startRemoveStory({ id: props.id }))
+});
+
+export default connect(undefined, mapDispatchToProps)(StoryIcon);

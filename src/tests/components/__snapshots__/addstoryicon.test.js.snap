@@ -2,6 +2,10 @@
 
 exports[`Should render story page correctly 1`] = `
 <div>
-  <button />
+  <button
+    className="button"
+  >
+    Add Story
+  </button>
 </div>
 `;

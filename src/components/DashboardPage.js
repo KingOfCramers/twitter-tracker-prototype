@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StoryIcon from "./StoryIcon";
-import AddStoryIcon from "./AddStoryIcon";
 import { connect } from "react-redux";
 
+import StoryList from "./StoryList";
+
 // Dashboard page fetches the data about all the stories someone has in the database and diplays the correct number of stories accordingly.
-const DashboardPage = (props) => (
+const DashboardPage = () => (
   <div>
-    <StoryIcon />
-    <AddStoryIcon />
+    <StoryList />
   </div>
 );
 
-const mapStateToProps = (state, props) => {
-
-};
 export default DashboardPage;

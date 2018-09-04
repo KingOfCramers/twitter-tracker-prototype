@@ -3,7 +3,7 @@ export default (state = {}, action) => {
     case "ADD_STORY" :
       return [...state, action.story]
     case "REMOVE_STORY" :
-      return state.stories.filter((story) => {
+      return state.filter((story) => {
         return story.id !== action.id;
       });
     case "SET_STORIES" :

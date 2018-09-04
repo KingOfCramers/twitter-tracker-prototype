@@ -13,7 +13,7 @@ beforeEach((done) => {
   stories.forEach(({ story, deadline, id }) => {
     storyData[id] = { story, deadline };
   });
-  database.ref(`users/${uid}/`).set(storyData).then(() => done());
+  database.ref(`users/${uid}/stories`).set(storyData).then(() => done());
 });
 
 test("Should create addStory action object", () => {
@@ -40,7 +40,7 @@ test("Should add story to firebase and store in Redux", (done) => {
         ...newStory
       }
     });
-    return database.ref(`users/${uid}/${actions[0].story.id}`).once("value");
+    return database.ref(`users/${uid}/stories/${actions[0].story.id}`).once("value");
   }).then((snapshot) => {
     expect(snapshot.val()).toEqual(newStory);
     done();
@@ -75,12 +75,11 @@ test("Should setup setStory action object", () => {
   });
 });
 
-test('Should fetch the stories from firebase', (done) => {
+test('should fetch the expenses from firebase', (done) => {
   const store = createMockStore(defaultAuthState);
   store.dispatch(startSetStories()).then(() => {
     const actions = store.getActions();
-    expect(actions[0].type).toEqual("SET_STORIES")
-    expect(actions[0].stories).toContainEqual(stories[0], stories[1], stories[3]);
+    expect(actions[0].stories).toContainEqual(stories[0], stories[1], stories[2]);
     done();
   });
 });
