@@ -1,7 +1,7 @@
 export default (state = {}, action) => {
   switch (action.type) {
-    case "SET_TWITTER" :
-      return action.twitter
+    case "ADD_STORY" :
+      return [...state, action.story]
     default :
       return state
   }
