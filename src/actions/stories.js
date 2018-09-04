@@ -1,5 +1,20 @@
 import database from "../firebase/firebase";
 
+export const removeStory = ({ id } = {}) => ({
+  type: "REMOVE_STORY",
+  id
+});
+
+export const startRemoveStory = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/${id}`).remove()
+      .then(() => {
+        dispatch(removeStory({ id }));
+      });
+  };
+};
+
 export const addStory = (story) => ({
   type: "ADD_STORY",
   story
