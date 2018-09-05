@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import StoryList from "./StoryList"; // Dashboard page fetches the data about all the stories someone has in the database and diplays the correct number of stories accordingly.
 import Modal from "./Modal";
 
-class DashboardPage extends React.Component {
+export class DashboardPage extends React.Component {
 
   render(){
     return (

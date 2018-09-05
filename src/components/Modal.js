@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../actions/modal";
 
-const ModalComponent = (props) => (
+export const Modal = (props) => (
   <div>
     <p>Hello!</p>
     <button onClick={() => props.hideModal()}/>
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export default connect(undefined, mapDispatchToProps)(ModalComponent);
+export default connect(undefined, mapDispatchToProps)(Modal);
