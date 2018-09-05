@@ -10,8 +10,7 @@ export default (state = {}, action) => {
       }
     default :
       return {
-        visible: true
+        visible: false
       }
   }
 };
-
