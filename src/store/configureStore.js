@@ -2,6 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import authReducer from "../reducers/auth";
 import storiesReducer from "../reducers/stories";
 import twitterReducer from "../reducers/twitter";
+import modalReducer from "../reducers/modal";
+
 import thunk from "redux-thunk";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -12,7 +14,8 @@ export default () => {
       combineReducers({
         auth: authReducer, // Add more reducers here.
         stories: storiesReducer,
-        twitter: twitterReducer
+        twitter: twitterReducer,
+        modal: modalReducer
       }),
       composeEnhancers(applyMiddleware(thunk))
     );
