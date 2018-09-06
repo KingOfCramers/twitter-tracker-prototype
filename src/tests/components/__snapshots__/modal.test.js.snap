@@ -2,11 +2,18 @@
 
 exports[`Should render Modal 1`] = `
 <div>
-  <p>
-    Hello!
-  </p>
-  <button
-    onClick={[Function]}
-  />
+  <form>
+    <input
+      autoFocus={true}
+      className="text-input"
+      onChange={[Function]}
+      placeholder="story name..."
+      type="text"
+      value=""
+    />
+    <button
+      onClick={[Function]}
+    />
+  </form>
 </div>
 `;

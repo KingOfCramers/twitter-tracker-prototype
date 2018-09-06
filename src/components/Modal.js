@@ -2,12 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import { hideModal } from "../actions/modal";
 import { startAddStory } from "../actions/stories";
+import { SingleDatePicker } from "react-dates"; // From airbnb datepicker
+import moment from "moment";
+import 'react-dates/initialize'
 
 export class Modal extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       story: props.story ? props.story : "",
+      description: props.description ? props.description : "",
+      createdAt: moment(),
+      calendarFocused: false
     }
   };
 
@@ -16,12 +22,27 @@ export class Modal extends React.Component {
     this.setState(() => ({ story }));
   };
 
+  onDescriptionChange = (e) => {
+    const description = e.target.value;
+    this.setState(() => ({ description }));
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
-    const story = e.target.value;
-    this.props.startAddStory({ story });
+    const story = this.state.story;
+    this.props.startAddStory(story);
     this.props.hideModal();
   };
+
+  onDateChange = (createdAt) => {
+    if(createdAt){
+      this.setState(() => ({ createdAt }));
+    }
+  }
+
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({ calendarFocused: focused }));
+  }
 
   render(){
     return (
@@ -35,7 +56,22 @@ export class Modal extends React.Component {
             onChange={this.onStoryChange}
             className="text-input"
           />
-          <button onClick={this.onSubmit}/>
+          <input
+            type="text"
+            placeholder="description"
+            value={this.state.description}
+            onChange={this.onDescriptionChange}
+            className="text-input"
+          />
+          <SingleDatePicker
+            date={this.state.createdAt}
+            onDateChange={this.onDateChange}
+            focused={this.state.calendarFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={(day) => false}
+          />
+          <button onClick={this.onSubmit}>Add Story</button>
         </form>
       </div>
     );
@@ -44,7 +80,7 @@ export class Modal extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   hideModal: () => dispatch(hideModal()),
-  startAddStory: (story) => dispatch(startAddStory(story))
+  startAddStory: (story) => dispatch(startAddStory({ story }))
 });
 
 

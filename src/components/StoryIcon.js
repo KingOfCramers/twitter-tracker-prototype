@@ -5,7 +5,7 @@ import { startRemoveStory } from "../actions/stories";
 export const StoryIcon = (props) => (
   <div>
     <h2>{props.story}</h2>
-    <button className="button" onClick={props.startRemoveStory}>Remove Story</button>
+    <button className="button--secondary" onClick={props.startRemoveStory}>Remove Story</button>
   </div>
 );
 
