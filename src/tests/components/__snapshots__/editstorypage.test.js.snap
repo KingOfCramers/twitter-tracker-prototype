@@ -1,7 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render story page correctly 1`] = `
-<div>
-  Edit Story Page
+<div
+  className="content-container"
+>
+  <button
+    onClick={[Function]}
+  >
+    Back
+  </button>
+  <h2 />
+  <p />
+  <p>
+    December 31, 1969
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
 </div>
 `;

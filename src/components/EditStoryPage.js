@@ -3,17 +3,22 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { startRemoveStory } from "../actions/stories"
 
-class EditStoryPage extends React.Component {
+export class EditStoryPage extends React.Component {
 
   onRemove = () => {
     this.props.removeStory({ id: this.props.story.id });
     this.props.history.push("/");
   }
 
+  onBack = () => {
+    this.props.history.push("/");
+  };
+
   render(props){
     return (
-     <div>
-      <p>{this.props.story.story}</p>
+     <div className="content-container">
+      <button onClick={this.onBack}>Back</button>
+      <h2>{this.props.story.story}</h2>
       <p>{this.props.story.description}</p>
       <p>{moment(this.props.story.dueDate).format("LL")}</p>
       <button onClick={this.onRemove}>Remove</button>
