@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 // Dashboard page fetches the data about all the stories someone has in the database and diplays the correct number of stories accordingly.
 const StoryList = (props) => (
-  <div>
+  <div className="content-container">
     {props.stories.length === 0 ? (
       <p>No stories</p>
     ) : (

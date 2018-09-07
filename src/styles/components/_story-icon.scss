@@ -1,0 +1,20 @@
+.story-icon {
+  border: 1px solid darken($off-white, 10%);
+  border-top: none;
+  color: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  padding: $s-size;
+  text-decoration: none;
+  transition: background .2s ease;
+  &:hover { // equivalent to .list-item:hover
+    background: $off-white;
+  }
+
+  @media (min-width: $desktop-breakpoint){ // when min-width is desktop-breakpoint or higher
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $m-size;
+    align-items: center;
+  }
+}

@@ -51,7 +51,7 @@ export class Modal extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="content-container">
         <form>
           <input
             type="text"
