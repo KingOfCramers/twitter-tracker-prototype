@@ -4,8 +4,7 @@ exports[`Should render story page correctly 1`] = `
 <div>
   <button
     className="button"
-  >
-    Add Story
-  </button>
+    onClick={[Function]}
+  />
 </div>
 `;

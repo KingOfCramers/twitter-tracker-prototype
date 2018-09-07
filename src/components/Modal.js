@@ -10,9 +10,9 @@ export class Modal extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      story: props.story ? props.story : "",
-      description: props.description ? props.description : "",
-      createdAt: moment(),
+      story: "",
+      description: "",
+      dueDate: moment(),
       calendarFocused: false
     }
   };
@@ -29,14 +29,19 @@ export class Modal extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const story = this.state.story;
+    let dueDate = this.state.dueDate.valueOf();
+    const story = {
+      story: this.state.story,
+      description: this.state.description,
+      dueDate
+    };
     this.props.startAddStory(story);
     this.props.hideModal();
   };
 
-  onDateChange = (createdAt) => {
-    if(createdAt){
-      this.setState(() => ({ createdAt }));
+  onDateChange = (dueDate) => {
+    if(dueDate){
+      this.setState(() => ({ dueDate }));
     }
   }
 
@@ -64,7 +69,7 @@ export class Modal extends React.Component {
             className="text-input"
           />
           <SingleDatePicker
-            date={this.state.createdAt}
+            date={this.state.dueDate}
             onDateChange={this.onDateChange}
             focused={this.state.calendarFocused}
             onFocusChange={this.onFocusChange}
@@ -80,7 +85,7 @@ export class Modal extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   hideModal: () => dispatch(hideModal()),
-  startAddStory: (story) => dispatch(startAddStory({ story }))
+  startAddStory: (story) => dispatch(startAddStory(story))
 });
 
 

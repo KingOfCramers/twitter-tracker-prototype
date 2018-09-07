@@ -17,13 +17,13 @@ export const startRemoveStory = ({ id } = {}) => {
 
 export const addStory = (story) => ({
   type: "ADD_STORY",
-  story
+  story,
 });
 
-export const startAddStory = ({ story = "", deadline = 0} = {}) => {
+export const startAddStory = ({ story, dueDate, description }) => {
   return (dispatch, getState) => {
-    const newStory = { story, deadline };
     const uid = getState().auth.uid;
+    const newStory = { story, dueDate, description }
 
     return database.ref(`users/${uid}/stories`).push(newStory).then((ref) => {
       dispatch(addStory({

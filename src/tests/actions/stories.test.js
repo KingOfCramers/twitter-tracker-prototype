@@ -28,7 +28,8 @@ test("Should add story to firebase and store in Redux", (done) => {
   const store = createMockStore(defaultAuthState);
   const newStory = {
     story: "Breaking investigative piece",
-    deadline: 28930131
+    dueDate: 28930131,
+    description: "this is teh description"
   };
 
   store.dispatch(startAddStory(newStory)).then(() => { // startAdd...
