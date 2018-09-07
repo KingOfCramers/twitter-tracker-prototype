@@ -55,15 +55,16 @@ export class Modal extends React.Component {
         <form>
           <input
             type="text"
-            placeholder="story name..."
+            placeholder="story..."
             autoFocus
             value={this.state.story}
             onChange={this.onStoryChange}
             className="text-input"
+            required
           />
           <input
             type="text"
-            placeholder="description"
+            placeholder="description..."
             value={this.state.description}
             onChange={this.onDescriptionChange}
             className="text-input"
@@ -76,7 +77,7 @@ export class Modal extends React.Component {
             numberOfMonths={1}
             isOutsideRange={(day) => false}
           />
-          <button onClick={this.onSubmit}>Add Story</button>
+          <button onClick={this.onSubmit} disabled={!this.state.story || !this.state.description}>Add Story</button>
         </form>
       </div>
     );

@@ -7,14 +7,15 @@ exports[`Should render Modal 1`] = `
       autoFocus={true}
       className="text-input"
       onChange={[Function]}
-      placeholder="story name..."
+      placeholder="story..."
+      required={true}
       type="text"
       value=""
     />
     <input
       className="text-input"
       onChange={[Function]}
-      placeholder="description"
+      placeholder="description..."
       type="text"
       value=""
     />
@@ -108,6 +109,7 @@ exports[`Should render Modal 1`] = `
       withPortal={false}
     />
     <button
+      disabled={true}
       onClick={[Function]}
     >
       Add Story
