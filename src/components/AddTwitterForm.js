@@ -18,7 +18,8 @@ export class AddTwitterForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     let handle = this.state.handle;
-    this.props.startAddHandle({ handle, story_id: this.props.story_id });
+    this.props.startAddHandle({ handle, story_id: this.props.story_id })
+      .then(() => this.setState({ handle: "" }))
   };
 
   render(){

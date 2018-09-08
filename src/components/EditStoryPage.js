@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 import moment from "moment";
-import AddTrackerSelector from "./AddTrackerSelector"
-import { startRemoveStory } from "../actions/stories"
+import AddTrackerSelector from "./AddTrackerSelector";
+import { startRemoveStory } from "../actions/stories";
 
 export class EditStoryPage extends React.Component {
 
@@ -23,7 +23,9 @@ export class EditStoryPage extends React.Component {
       <p>{this.props.story.description}</p>
       <p>{moment(this.props.story.dueDate).format("LL")}</p>
       <button onClick={this.onRemove}>Remove</button>
-      <AddTrackerSelector story_id={this.props.story.id}/>
+      <div>
+        <AddTrackerSelector story_id={this.props.story.id}/>
+      </div>
     </div>
     );
   }
