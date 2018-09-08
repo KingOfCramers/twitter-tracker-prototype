@@ -1,5 +1,5 @@
 import React from "react";
-import AddTrackerForm from "./AddTrackerForm";
+import AddTwitterForm from "./AddTwitterForm";
 
 export class AddTrackerSelector extends React.Component {
   constructor(props) {
@@ -8,14 +8,25 @@ export class AddTrackerSelector extends React.Component {
       type: 'Twitter'
     };
     this.handleChange = this.handleChange.bind(this);
+    this.pickForm = this.pickForm.bind(this);
   };
 
   handleChange(event) {
     this.setState({ type: event.target.value });
-  }
+  };
+
+  pickForm(){
+    switch(this.state.type) {
+      case "Twitter" :
+        return <AddTwitterForm story_id={this.props.story_id}/>
+      default :
+        return <p>Nothing!</p>
+    };
+  };
 
   render() {
     return (
+      <div>
       <form>
         <label>
           <select type={this.state.type} onChange={this.handleChange}>
@@ -26,9 +37,10 @@ export class AddTrackerSelector extends React.Component {
             <option type="Federal Register">Federal Register</option>
             <option type="Campaigns">Campaigns</option>
           </select>
-          <AddTrackerForm type={this.state.type}/>
         </label>
       </form>
+      {this.pickForm()}
+      </div>
     );
   }
 }

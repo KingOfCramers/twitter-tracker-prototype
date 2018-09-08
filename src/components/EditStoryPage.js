@@ -23,7 +23,7 @@ export class EditStoryPage extends React.Component {
       <p>{this.props.story.description}</p>
       <p>{moment(this.props.story.dueDate).format("LL")}</p>
       <button onClick={this.onRemove}>Remove</button>
-      <AddTrackerSelector />
+      <AddTrackerSelector story_id={this.props.story.id}/>
     </div>
     );
   }
