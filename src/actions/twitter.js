@@ -12,9 +12,6 @@ export const startAddHandle = ({ handle, story_id }) => {
     const twitter = { handle };
     // console.log(story_id);
     const uid = getState().auth.uid;
-    console.log("THE UID", uid);
-    console.log("THE STORY_ID", story_id);
-    console.log("THE TWEET", twitter);
 
     return database.ref(`users/${uid}/stories/${story_id}/twitter`).push(twitter)
       .then((ref) => {
