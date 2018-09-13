@@ -5,6 +5,6 @@ export default (state = {}, action) => {
     case "SET_HANDLES" :
       return action.twitter
     default :
-      return {}
+      return []
   }
 };

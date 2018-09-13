@@ -12,8 +12,8 @@ class TweetList extends React.Component {
   render(){
     return (
       <div>
-        { this.props.twitter.length === 0 ? (
-          <p>No handles.</p>
+        { this.props.twitter.length === 0 ? ( // WHAT THE FUCK
+          <p>No tweets...</p>
         ) : (
             this.props.twitter.map((handle) => {
               return <Tweet key={handle.id} handle={handle.handle} />
