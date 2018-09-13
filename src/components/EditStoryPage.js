@@ -19,10 +19,10 @@ export class EditStoryPage extends React.Component {
     return (
      <div className="content-container">
       <button onClick={this.onBack}>Back</button>
+      <button onClick={this.onRemove}>Remove</button>
       <h2>{this.props.story.story}</h2>
       <p>{this.props.story.description}</p>
       <p>{moment(this.props.story.dueDate).format("LL")}</p>
-      <button onClick={this.onRemove}>Remove</button>
       <div>
         <AddTrackerSelector story_id={this.props.story.id}/>
       </div>

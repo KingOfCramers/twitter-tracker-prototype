@@ -1,6 +1,6 @@
 import React from "react";
 import AddTwitterForm from "./AddTwitterForm";
-import TrackerDisplay from "./TrackerDisplay";
+import TweetList from "./TweetList";
 
 export class AddTrackerSelector extends React.Component {
   constructor(props) {
@@ -19,7 +19,12 @@ export class AddTrackerSelector extends React.Component {
   pickForm(){
     switch(this.state.type) {
       case "Twitter" :
-        return <AddTwitterForm story_id={this.props.story_id}/>
+        return (
+          <div>
+            <TweetList story_id={this.props.story_id} />
+            <AddTwitterForm story_id={this.props.story_id}/>
+          </div>
+          )
       default :
         return <p>Nothing!</p>
     };
@@ -41,7 +46,6 @@ export class AddTrackerSelector extends React.Component {
         </label>
       </form>
       {this.pickForm()}
-      <TrackerDisplay story_id={this.props.story_id} type={this.state.type.toLowerCase()}/>
       </div>
     );
   }
