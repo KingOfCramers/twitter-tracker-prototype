@@ -24,7 +24,7 @@ export class AddTwitterForm extends React.Component {
 
   render(){
     return (
-      <div className="content-container">
+      <div>
         <form>
           <input
             type="text"
