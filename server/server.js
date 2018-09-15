@@ -3,7 +3,11 @@ const express = require("express");
 const app = express();
 const publicPath = path.join(__dirname, "..", "public");
 const port = process.env.PORT || 3000;
+const cron = require("node-cron");
 
+cron.schedule("* * * * *", () => {
+  console.log("HELLO");
+});
 
 app.use(express.static(publicPath)); // Serve up static
 
