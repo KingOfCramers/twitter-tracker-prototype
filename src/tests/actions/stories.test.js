@@ -76,7 +76,7 @@ test("Should setup setStory action object", () => {
   });
 });
 
-test('should fetch the expenses from firebase', (done) => {
+test('should fetch the stories from firebase', (done) => {
   const store = createMockStore(defaultAuthState);
   store.dispatch(startSetStories()).then(() => {
     const actions = store.getActions();

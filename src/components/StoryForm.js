@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { startAddStory, startRemoveStory } from "../actions/stories";
+import { startAddStory, startRemoveStory, startEditStory } from "../actions/stories";
 import { SingleDatePicker } from "react-dates"; // From airbnb datepicker
 import { Link } from "react-router-dom";
 import moment from "moment";
@@ -39,12 +39,8 @@ class StoryForm extends React.Component {
         description: this.state.description,
         dueDate
       };
-
       if(this.props.match.path === "/story/:id/edit"){ // If we're on an edit page...
-        console.log("EDITING");
-
-        /// CREATE AN EDIT ACTION OBJECT
-
+        this.props.startEditStory(this.props.story.id, story);
       } else {
         this.props.startAddStory(story);
       }
@@ -120,7 +116,8 @@ const mapStateToProps = (state, props) => ({ // we have access to the props as t
 
 const mapDispatchToProps = (dispatch) => ({
   startAddStory: (story) => dispatch(startAddStory(story)),
-  startRemoveStory: (story) => dispatch(startRemoveStory(story))
+  startRemoveStory: (story) => dispatch(startRemoveStory(story)),
+  startEditStory: (id, updates) => dispatch(startEditStory(id, updates))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoryForm);

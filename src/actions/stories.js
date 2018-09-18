@@ -56,3 +56,21 @@ export const startSetStories = () => {
       });
   };
 };
+
+export const editStory = (id, updates) => ({
+  type: "EDIT_STORY",
+  id,
+  updates
+})
+
+
+export const startEditStory = (id, updates) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    console.log(id, updates);
+    return database.ref(`users/${uid}/stories/${id}`).update(updates)
+      .then(() => {
+        dispatch(editStory(id, updates))
+      });
+  }
+}
