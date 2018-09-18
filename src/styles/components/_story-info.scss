@@ -1,0 +1,10 @@
+.story-info {
+  transition: background .2s ease;
+  &:hover { // equivalent to .list-item:hover
+    background: $off-white;
+  }
+}
+
+.story-info > * {
+  text-decoration: none;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { startRemoveStory } from "../actions/stories";
 import moment from "moment";
 import { Link } from "react-router-dom"
 

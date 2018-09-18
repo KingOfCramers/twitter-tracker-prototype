@@ -8,13 +8,25 @@
   display: inline-block; // Takes into effect top and bottom margin and padding
   text-decoration: none;
   line-height: 1;
-}
-
-.button--link {
-  background: none;
+  margin-top: $s-size;
+  transition: background .2s ease;
+  &:hover { // equivalent to .list-item:hover
+    background: darken($turqouise, 10%)
+  }
 }
 
 .button--secondary {
   @extend .button;
   background: $dark-blue;
+  &:hover { // equivalent to .list-item:hover
+    background: darken($dark-blue, 10%)
+  }
+}
+
+.button--third {
+  @extend .button;
+  background: $bright-red;
+  &:hover { // equivalent to .list-item:hover
+    background: darken($bright-red, 10%)
+  }
 }

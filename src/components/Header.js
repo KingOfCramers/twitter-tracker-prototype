@@ -10,7 +10,7 @@ export const Header = ({ startLogout }) => ( // Props need to be imported in a s
         <Link to="/dashboard" className="header__title">
           <h1>Storyful</h1>
         </Link>
-        <button className="button button--link" onClick={startLogout}>Log out</button>
+        <button className="button--secondary" onClick={startLogout}>Log out</button>
       </div>
     </div>
   </header>

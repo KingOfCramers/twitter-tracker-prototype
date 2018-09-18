@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
 
 import StoryList from "./StoryList"; // Dashboard page fetches the data about all the stories someone has in the database and diplays the correct number of stories accordingly.
-import Modal from "./Modal";
 
 export class DashboardPage extends React.Component {
 
+  onButtonClick = () => {
+    this.props.history.push("/create");
+  }
+
   render(){
     return (
-      <div>
+      <div className="content-container">
          <StoryList />
-         {this.props.visible && <Modal />}
+         <button className="button" onClick={this.onButtonClick}>Add Story</button>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  visible: state.modal.visible
-});
 
-export default connect(mapStateToProps)(DashboardPage);
+export default DashboardPage;

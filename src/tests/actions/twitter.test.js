@@ -18,7 +18,7 @@ beforeEach((done) => {
 });
 
 test("Should create twitter action object", () => {
-  const action = addHandle({ handle: "harrisoncramer" });
+  const action = addHandle("harrisoncramer");
   expect(action).toEqual({
     type: "ADD_HANDLE",
     handle: "harrisoncramer"
@@ -34,7 +34,10 @@ test("Should post handle to firebase", (done) => {
       const actions = store.getActions();
       expect(actions[0]).toEqual({
         type: "ADD_HANDLE",
-        handle: "harrisoncramer"
+        handle: {
+          handle: "harrisoncramer",
+          id: expect.any(String)
+        }
       });
     });
     done();

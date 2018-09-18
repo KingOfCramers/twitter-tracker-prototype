@@ -6,7 +6,8 @@ export class AddTwitterForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      handle: ""
+      handle: "",
+      error: ""
     };
   };
 
@@ -17,14 +18,18 @@ export class AddTwitterForm extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    let handle = this.state.handle;
-    this.props.startAddHandle({ handle, story_id: this.props.story_id })
-      .then(() => this.setState({ handle: "" }))
+    if(!this.state.handle){
+         this.setState(() => ({ error: "Please add a handle."}))
+    } else {
+      this.props.startAddHandle({ handle: this.state.handle, story_id: this.props.story_id })
+      .then(() => this.setState({ handle: "", error: "" }))
+    }
   };
 
   render(){
     return (
       <div>
+        {this.state.error && <p className="form__error">{this.state.error}</p>}
         <form>
           <input
             type="text"
@@ -35,7 +40,7 @@ export class AddTwitterForm extends React.Component {
             className="text-input"
             required
           />
-          <button onClick={this.onSubmit} disabled={!this.state.handle}>Add Handle</button>
+          <button onClick={this.onSubmit} className="button">Add Handle</button>
         </form>
       </div>
     );

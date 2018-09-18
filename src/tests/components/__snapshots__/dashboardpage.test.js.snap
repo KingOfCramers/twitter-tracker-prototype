@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render ExpenseDashboard page correctly 1`] = `
-<div>
+<div
+  className="content-container"
+>
   <Connect(StoryList) />
+  <button
+    className="button"
+    onClick={[Function]}
+  >
+    Add Story
+  </button>
 </div>
 `;

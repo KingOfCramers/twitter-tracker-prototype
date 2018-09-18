@@ -13,14 +13,17 @@ import DashboardPage from "../components/DashboardPage";
 import FourOhFour from "../components/FourOhFour";
 import Login from "../components/Login";
 import EditStoryPage from "../components/EditStoryPage";
+import StoryForm from "../components/StoryForm";
 
 const AppRouter = () => (
   <Router history={history} >
     <div>
       <Switch>
         <PublicRoute path="/" component={Login} exact={true} />
-        <PrivateRoute exact={true} path="/dashboard" component={DashboardPage} />
-        <PrivateRoute path="/story/:id" component={EditStoryPage} />
+        <PrivateRoute path="/dashboard" component={DashboardPage} />
+        <PrivateRoute path="/create" component={StoryForm} />
+        <PrivateRoute path="/story/:id" exact={true} component={EditStoryPage} />
+        <PrivateRoute path="/story/:id/edit" component={StoryForm} />
         <Route component={FourOhFour}/>
       </Switch>
     </div>
