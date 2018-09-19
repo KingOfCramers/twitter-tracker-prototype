@@ -41,10 +41,11 @@ class StoryForm extends React.Component {
       };
       if(this.props.match.path === "/story/:id/edit/settings"){ // If we're on an edit page...
         this.props.startEditStory(this.props.story.id, story);
+        this.props.history.push(`/story/${this.props.story.id}/edit`);
       } else {
         this.props.startAddStory(story);
+        this.props.history.push("/")
       }
-      this.props.history.push(`/story/${this.props.story.id}/edit`);
     }
   };
 

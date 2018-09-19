@@ -15,15 +15,19 @@ export class EditStoryDashboard extends React.Component {
     this.props.history.push(`/story/${this.props.story.id}/edit`);
   };
 
+
+/// https://codepen.io/danbuda/pen/mAVALa
   render(props){
     return (
     <div className="content-container">
-      <button onClick={this.onBack} className="button--secondary">Home</button>
-      <button onClick={this.onEdit} className="button">Edit</button>
+      <nav className="story-nav">
+        <button onClick={this.onBack} className="button--secondary">Home</button>
+        <button onClick={this.onEdit} className="button">Edit</button>
+      </nav>
       <div className='story-info'>
-      <h2>{this.props.story.story}</h2>
-        <p>{moment(this.props.story.dueDate).format("LL")}</p>
-        <p>{this.props.story.description}</p>
+        <h2 className='story-info__title'>{this.props.story.story}</h2>
+        <p className='story-info__feature'><span>{moment(this.props.story.dueDate).format("LL")}</span></p>
+        <p className='story-info__feature'>{this.props.story.description}</p>
       </div>
     </div>
     );

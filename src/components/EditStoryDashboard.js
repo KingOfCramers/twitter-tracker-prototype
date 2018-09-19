@@ -23,14 +23,16 @@ export class EditStoryDashboard extends React.Component {
 
   render(props){
     return (
-     <div className="content-container">
+    <div className="content-container">
+      <nav className="story-nav">
+        <button className="button--secondary" onClick={this.onView}>Back</button>
+        <button className="button" onClick={this.onSettings}>Settings</button>
+      </nav>
      <div className='story-info'>
-       <h2>{this.props.story.story}</h2>
-       <p>{this.props.story.description}</p>
-       <p>{moment(this.props.story.dueDate).format("LL")}</p>
+       <h2 className='story-info__title'>{this.props.story.story}</h2>
+       <p className='story-info__feature'><span>{moment(this.props.story.dueDate).format("LL")}</span></p>
+       <p className='story-info__feature'>{this.props.story.description}</p>
      </div>
-      <button className="button--secondary" onClick={this.onView}>Back</button>
-      <button className="button" onClick={this.onSettings}>Settings</button>
       <div>
         <AddTrackerSelector story_id={this.props.story.id}/>
       </div>

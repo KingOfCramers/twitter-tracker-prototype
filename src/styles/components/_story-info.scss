@@ -3,8 +3,13 @@ div.story-info {
   flex-direction: column;
   justify-content: space-between;
   align-items: left;
+  margin-top: $s-size;
  }
 
- div.story-info > * {
+ div.story-info * {
   margin: 0;
+ }
+
+ div.story-info span {
+  font-style: italic;
  }

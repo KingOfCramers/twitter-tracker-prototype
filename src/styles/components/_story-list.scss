@@ -1,4 +1,18 @@
-.story-icon {
+.story-list {
+  display: none;
+  @media (min-width: $desktop-breakpoint){ // when min-width is desktop-breakpoint or higher
+    display: flex;
+    justify-content: space-between;
+    padding: $s-size;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: $s-size;
+    background: $dark-grey;
+    color: white;
+  }
+}
+
+.story-list--icon {
   border: 1px solid darken($off-white, 10%);
   border-top: none;
   color: $dark-grey;
@@ -17,4 +31,10 @@
     padding: $m-size;
     align-items: center;
   }
+}
+.story-list--icon__title {
+
+}
+.story-list--icon__feature {
+
 }

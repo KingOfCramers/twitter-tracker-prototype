@@ -5,10 +5,10 @@ import { Link } from "react-router-dom"
 
 export const StoryIcon = (props) => (
   <div>
-    <Link to={`/story/${props.id}`} className="story-icon">
-      <h2>{props.story}</h2>
-      <p>{props.description}</p>
-      <p>{moment(props.dueDate).format("LL")}</p>
+    <Link to={`/story/${props.id}`} className="story-list--icon">
+      <h3 className="story-list--icon__title">{props.story.substring(0,25)}</h3>
+      <p className="story-list--icon__feature">{props.description.substring(0,40)}</p>
+      <p className="story-list--icon__feature">{moment(props.dueDate).format("LL")}</p>
     </Link>
   </div>
 );
