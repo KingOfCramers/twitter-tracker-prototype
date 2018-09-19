@@ -6,7 +6,7 @@ import StoryList from "./StoryList"; // Dashboard page fetches the data about al
 export class DashboardPage extends React.Component {
 
   onButtonClick = () => {
-    this.props.history.push("/create");
+    this.props.history.push("/story/create");
   }
 
   render(){

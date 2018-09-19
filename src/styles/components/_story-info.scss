@@ -1,10 +1,10 @@
-.story-info {
-  transition: background .2s ease;
-  &:hover { // equivalent to .list-item:hover
-    background: $off-white;
-  }
-}
+div.story-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+ }
 
-.story-info > * {
-  text-decoration: none;
-}
+ div.story-info > * {
+  margin: 0;
+ }

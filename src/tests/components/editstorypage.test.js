@@ -1,5 +1,5 @@
 import React from "react";
-import { EditStoryPage } from "../../components/EditStoryPage";
+import { EditStoryDashboard } from "../../components/EditStoryDashboard";
 import { shallow } from "enzyme";
 
 test("Should render story page correctly", () => {
@@ -8,6 +8,6 @@ test("Should render story page correctly", () => {
     dueDate: 123092408,
     description: "soidf0qiof"
   }
-  const wrapper = shallow(<EditStoryPage {...props}/>);
+  const wrapper = shallow(<EditStoryDashboard {...props}/>);
   expect(wrapper).toMatchSnapshot();
 });

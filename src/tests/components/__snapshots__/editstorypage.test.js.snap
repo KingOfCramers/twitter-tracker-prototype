@@ -4,26 +4,27 @@ exports[`Should render story page correctly 1`] = `
 <div
   className="content-container"
 >
+  <div
+    className="story-info"
+  >
+    <h2 />
+    <p />
+    <p>
+      December 31, 1969
+    </p>
+  </div>
   <button
     className="button--secondary"
     onClick={[Function]}
   >
     Back
   </button>
-  <div
-    className="story-info"
+  <button
+    className="button"
+    onClick={[Function]}
   >
-    <Link
-      replace={false}
-      to="/story/undefined/edit"
-    >
-      <h2 />
-      <p />
-      <p>
-        December 31, 1969
-      </p>
-    </Link>
-  </div>
+    Settings
+  </button>
   <div>
     <AddTrackerSelector />
   </div>

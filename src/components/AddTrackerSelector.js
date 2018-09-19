@@ -35,13 +35,13 @@ export class AddTrackerSelector extends React.Component {
       <div>
       <form>
         <label>
-          <select type={this.state.type} onChange={this.handleChange}>
-            <option type="Twitter">Twitter</option>
-            <option type="Legislation">Legislation</option>
-            <option type="Lobbying">Lobbying</option>
-            <option type="Court Cases">Court Cases</option>
-            <option type="Federal Register">Federal Register</option>
-            <option type="Campaigns">Campaigns</option>
+          <select className="tracker-selector" type={this.state.type} onChange={this.handleChange}>
+            <option className="tracker-selector--option" type="Twitter">Twitter</option>
+            <option className="tracker-selector--option" type="Legislation">Legislation</option>
+            <option className="tracker-selector--option" type="Lobbying">Lobbying</option>
+            <option className="tracker-selector--option" type="Court Cases">Court Cases</option>
+            <option className="tracker-selector--option" type="Federal Register">Federal Register</option>
+            <option className="tracker-selector--option" type="Campaigns">Campaigns</option>
           </select>
         </label>
       </form>
@@ -52,3 +52,4 @@ export class AddTrackerSelector extends React.Component {
 }
 
 export default AddTrackerSelector;
+

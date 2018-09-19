@@ -5,25 +5,25 @@ import AddTrackerSelector from "./AddTrackerSelector";
 import { startRemoveStory } from "../actions/stories";
 import { Link } from "react-router-dom";
 
-export class EditStoryPage extends React.Component {
+export class EditStoryDashboard extends React.Component {
 
   onBack = () => {
     this.props.history.push("/");
   };
 
+  onEdit = () => {
+    this.props.history.push(`/story/${this.props.story.id}/edit`);
+  };
+
   render(props){
     return (
-     <div className="content-container">
-      <button className="button--secondary" onClick={this.onBack}>Back</button>
+    <div className="content-container">
+      <button onClick={this.onBack} className="button--secondary">Home</button>
+      <button onClick={this.onEdit} className="button">Edit</button>
       <div className='story-info'>
-        <Link to={`/story/${this.props.story.id}/edit`}>
-          <h2>{this.props.story.story}</h2>
-          <p>{this.props.story.description}</p>
-          <p>{moment(this.props.story.dueDate).format("LL")}</p>
-        </Link>
-      </div>
-      <div>
-        <AddTrackerSelector story_id={this.props.story.id}/>
+      <h2>{this.props.story.story}</h2>
+        <p>{moment(this.props.story.dueDate).format("LL")}</p>
+        <p>{this.props.story.description}</p>
       </div>
     </div>
     );
@@ -34,4 +34,4 @@ const mapStateToProps = (state, props) => ({ // we have access to the props as t
     story: state.stories.find((story) => story.id === props.match.params.id) // the props.match.params comes from the Router (it's part of the URL)
 });
 
-export default connect(mapStateToProps)(EditStoryPage);
+export default connect(mapStateToProps)(EditStoryDashboard);

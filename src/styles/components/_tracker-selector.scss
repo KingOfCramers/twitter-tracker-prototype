@@ -1,0 +1,11 @@
+.tracker-selector {
+  border: none;
+  background: $turqouise;
+  color: white;
+  font-family: Raleway, sans-serif;
+}
+
+.tracker-selector--option {
+  @extend .tracker-selector;
+
+}

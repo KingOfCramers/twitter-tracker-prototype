@@ -12,7 +12,8 @@ export const history = createHistory();
 import DashboardPage from "../components/DashboardPage";
 import FourOhFour from "../components/FourOhFour";
 import Login from "../components/Login";
-import EditStoryPage from "../components/EditStoryPage";
+import EditStoryDashboard from "../components/EditStoryDashboard";
+import DisplayStoryDashboard from "../components/DisplayStoryDashboard";
 import StoryForm from "../components/StoryForm";
 
 const AppRouter = () => (
@@ -21,9 +22,10 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={Login} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
-        <PrivateRoute path="/create" component={StoryForm} />
-        <PrivateRoute path="/story/:id" exact={true} component={EditStoryPage} />
-        <PrivateRoute path="/story/:id/edit" component={StoryForm} />
+        <PrivateRoute path="/story/create" component={StoryForm} />
+        <PrivateRoute path="/story/:id" exact={true} component={DisplayStoryDashboard} />
+        <PrivateRoute path="/story/:id/edit" exact={true} component={EditStoryDashboard} />
+        <PrivateRoute path="/story/:id/edit/settings" component={StoryForm} />
         <Route component={FourOhFour}/>
       </Switch>
     </div>

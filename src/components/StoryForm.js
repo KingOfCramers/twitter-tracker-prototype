@@ -39,12 +39,12 @@ class StoryForm extends React.Component {
         description: this.state.description,
         dueDate
       };
-      if(this.props.match.path === "/story/:id/edit"){ // If we're on an edit page...
+      if(this.props.match.path === "/story/:id/edit/settings"){ // If we're on an edit page...
         this.props.startEditStory(this.props.story.id, story);
       } else {
         this.props.startAddStory(story);
       }
-      this.props.history.push("/");
+      this.props.history.push(`/story/${this.props.story.id}/edit`);
     }
   };
 
@@ -65,7 +65,7 @@ class StoryForm extends React.Component {
 
   onBack = () => {
     if(this.props.story){
-      this.props.history.push(`/story/${this.props.story.id}`);
+      this.props.history.push(`/story/${this.props.story.id}/edit`);
     } else {
       this.props.history.push('/');
     }
@@ -74,7 +74,7 @@ class StoryForm extends React.Component {
   render(){
     return (
       <div className="content-container">
-      <button onClick={this.onBack} className="button--secondary">Back</button>
+      <button onClick={this.onBack} className="button--secondary">Cancel</button>
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <form>
           <input
@@ -103,7 +103,7 @@ class StoryForm extends React.Component {
           />
           <button onClick={this.onSubmit} className="button">Confirm Changes</button>
         </form>
-        { this.props.match.path === "/story/:id/edit" && <button className="button--third" onClick={this.onRemove}>Remove</button> }
+        { this.props.match.path === "/story/:id/edit/settings" && <button className="button--third" onClick={this.onRemove}>Remove</button> }
       </div>
     );
   }
